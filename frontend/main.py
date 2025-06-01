@@ -96,6 +96,7 @@ if st.session_state.access_token:
     try:
         res = requests.get(
             f"{API_URL}/summaries",
+            params={"user_id": st.session_state.username},
             headers={"Authorization": f"Bearer {st.session_state.access_token}"},
         )
         if res.status_code == 200 and res.json():

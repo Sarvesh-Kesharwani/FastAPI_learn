@@ -66,7 +66,7 @@ async def upload_pdf(file: UploadFile = File(...)):
 from fastapi import FastAPI, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
-from database import init_db, engine_summary, SessionLocal_summary
+from database import init_db, SessionLocal_summary
 from llm_chain import summarize_doc
 from datetime import datetime
 from models import Summary
@@ -84,7 +84,7 @@ async def summarize(user_id: str = Form(...), file: UploadFile = Form(...)):
     content = await file.read()
     summary_text = summarize_doc(content)
 
-    db: Session = SessionLocal()
+    db: Session = SessionLocal_summary()
     new_summary = Summary(
         user_id=user_id,
         file_name=file.filename,
@@ -101,10 +101,10 @@ async def summarize(user_id: str = Form(...), file: UploadFile = Form(...)):
 
 @app.get("/summaries")
 def get_summaries(user_id: str):
-    db: Session = SessionLocal()
+    db: Session = SessionLocal_summary()
     results = (
         db.query(Summary)
-        .filter(Summary.user_id == user_id)
+        # .filter(Summary.user_id == user_id)
         .order_by(Summary.timestamp.desc())
         .all()
     )
