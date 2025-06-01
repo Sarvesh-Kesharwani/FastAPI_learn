@@ -104,7 +104,7 @@ def get_summaries(user_id: str):
     db: Session = SessionLocal_summary()
     results = (
         db.query(Summary)
-        # .filter(Summary.user_id == user_id)
+        .filter(Summary.user_id == user_id)
         .order_by(Summary.timestamp.desc())
         .all()
     )
