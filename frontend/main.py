@@ -64,7 +64,7 @@ if st.session_state.access_token:
     if uploaded_file:
         st.write(f"File selected: `{uploaded_file.name}`")
 
-        if st.button("Send to Backend"):
+        if st.button("Summarize"):
             with st.spinner("Uploading and summarizing..."):
                 try:
                     files = {
