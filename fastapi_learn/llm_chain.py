@@ -2,6 +2,11 @@ from langchain_openai import ChatOpenAI
 from langchain.chains.summarize import load_summarize_chain
 from langchain.document_loaders import TextLoader
 from langchain.docstore.document import Document
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
 
 def summarize_doc(file_bytes):

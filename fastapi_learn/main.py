@@ -66,10 +66,10 @@ async def upload_pdf(file: UploadFile = File(...)):
 from fastapi import FastAPI, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
-from db import Summary, SessionLocal, init_db
-from your_langchain_summary import summarize_doc
+from database import init_db, engine_summary, SessionLocal_summary
+from llm_chain import summarize_doc
 from datetime import datetime
-
+from models import Summary
 
 # CORS for frontend access
 app.add_middleware(

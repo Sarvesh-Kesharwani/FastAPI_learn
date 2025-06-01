@@ -10,3 +10,14 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
 
+
+# DB setup
+engine_summary = create_engine("sqlite:///summaries.db", echo=False)
+SessionLocal_summary = sessionmaker(bind=engine_summary)
+
+Base_summary = declarative_base()
+
+
+# Create tables
+def init_db():
+    Base_summary.metadata.create_all(bind=engine_summary)

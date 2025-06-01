@@ -14,3 +14,6 @@ streamlit
 
 langchain
 langchain-openai
+langchain-community
+
+dotenv
