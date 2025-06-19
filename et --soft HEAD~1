@@ -1,0 +1,66 @@
+[33mcommit 1b28a4a4d8baab7162843c0df43c66bf73f36269[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Sarvesh Kesharwani <sarveshkumar5513@gmail.com>
+Date:   Thu Jun 19 20:35:02 2025 +0530
+
+    update
+
+[33mcommit b37d47a86edb530ba9b591c9affee024728b34d0[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Sarvesh Kesharwani <sarveshkumar5513@gmail.com>
+Date:   Sun Jun 1 23:46:57 2025 +0530
+
+    working with specific users
+
+[33mcommit f40422965bdf2d86e4f321ddb5857275c9cd109f[m
+Author: Sarvesh Kesharwani <sarveshkumar5513@gmail.com>
+Date:   Sun Jun 1 23:44:44 2025 +0530
+
+    working
+
+[33mcommit 9372dd33a02e6c416128665888ff0e0aabd6d050[m
+Author: Sarvesh Kesharwani <sarveshkumar5513@gmail.com>
+Date:   Sun Jun 1 23:27:12 2025 +0530
+
+    done
+
+[33mcommit 41ea831806d39f5a2514c9c06d88e9b186190d1a[m
+Author: Sarvesh Kesharwani <sarveshkumar5513@gmail.com>
+Date:   Sun Jun 1 23:20:10 2025 +0530
+
+    listing prev summaries is also working now
+
+[33mcommit 3043655e23034e8d7f106f840213a4deb0842c81[m
+Author: Sarvesh Kesharwani <sarveshkumar5513@gmail.com>
+Date:   Sun Jun 1 23:02:03 2025 +0530
+
+    finally working | warning: i have removed openai api key from hardedcoded code
+
+[33mcommit 810bd391a9f760ba2f8071093d9af50ad5abc687[m
+Author: Sarvesh Kesharwani <sarveshkumar5513@gmail.com>
+Date:   Sun Jun 1 22:42:54 2025 +0530
+
+    updated backend folder name
+
+[33mcommit 61c8a5957884e8867e666aa7314f59cf68695421[m
+Author: sarvesh kesharwani <sarveshkumar5513@gmail.com>
+Date:   Sun Jun 1 22:40:25 2025 +0530
+
+    ready to summarize
+
+[33mcommit 0987a5a18a00660ec6866a0f7cf5732e94e5e25e[m
+Merge: c76a5b9 c4d83b7
+Author: sarvesh kesharwani <sarveshkumar5513@gmail.com>
+Date:   Sun Jun 1 22:21:11 2025 +0530
+
+    Merge branch 'main' of https://github.com/Sarvesh-Kesharwani/FastAPI_learn
+
+[33mcommit c76a5b943be63dfa084e5f7306c2702cebd0625e[m
+Author: sarvesh kesharwani <sarveshkumar5513@gmail.com>
+Date:   Sun Jun 1 22:17:56 2025 +0530
+
+    inint
+
+[33mcommit c4d83b7ad8bb81adf97425cf52506a50ffd821cc[m
+Author: Sarvesh Kesharwani <sarveshkumar5513@gmail.com>
+Date:   Sun Jun 1 22:15:22 2025 +0530
+
+    Initial commit

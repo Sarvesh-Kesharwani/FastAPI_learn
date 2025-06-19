@@ -10,13 +10,21 @@ from typing import Annotated
 # custom modules
 import models
 import auth
-from auth import get_current_user
 
 # backend.py
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import JSONResponse
 import shutil
 import os
+
+
+from fastapi import FastAPI, UploadFile, Form
+from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy.orm import Session
+from database import init_db, SessionLocal_summary
+from llm_chain import summarize_doc
+from datetime import datetime
+from models import Summary
 
 
 app = FastAPI()
@@ -34,7 +42,6 @@ def get_db():
 
 
 db_dependecy = Annotated[Session, Depends(get_db)]
-user_dependecy = Annotated[dict, Depends(get_current_user)]
 
 
 @app.get("/", status_code=status.HTTP_200_OK)
@@ -47,30 +54,7 @@ async def user(user: None, db: db_dependecy):
 UPLOAD_DIR = "uploaded_files"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
-
-@app.post("/upload-pdf/")
-async def upload_pdf(file: UploadFile = File(...)):
-    if file.content_type != "application/pdf":
-        return JSONResponse(
-            status_code=400, content={"message": "Only PDF files allowed."}
-        )
-
-    file_location = os.path.join(UPLOAD_DIR, file.filename)
-
-    with open(file_location, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
-
-    return {"message": "Upload successful", "filename": file.filename}
-
-
-from fastapi import FastAPI, UploadFile, Form
-from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy.orm import Session
-from database import init_db, SessionLocal_summary
-from llm_chain import summarize_doc
-from datetime import datetime
-from models import Summary
-
+#####################################################################################################################################
 # CORS for frontend access
 app.add_middleware(
     CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"]

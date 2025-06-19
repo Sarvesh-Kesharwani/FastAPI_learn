@@ -7,10 +7,13 @@ import os
 import tempfile
 import logging
 
+from langchain.prompts import PromptTemplate
+
 logging.basicConfig(level=logging.INFO)
 
 load_dotenv()
-os.environ["OPENAI_API_KEY"] = 
+os.environ["OPENAI_API_KEY"]
+
 
 def summarize_doc(file_bytes):
     try:
@@ -21,8 +24,12 @@ def summarize_doc(file_bytes):
         loader = PyPDFLoader(tmp_path)
         docs = loader.load()
 
+        prompt_len = PromptTemplate(
+            input_variables=["text"],
+            template="summarie the following text in 100 or less words:\n {text}",
+        )
         llm = ChatOpenAI(temperature=0)
-        chain = load_summarize_chain(llm, chain_type="stuff")
+        chain = load_summarize_chain(llm, chain_type="stuff", prompt=prompt_len)
 
         result = chain.run(docs)
         return result
